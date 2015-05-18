@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+
+
+{% block content %}
+
+
+{% if object_list %}
+
+
+<table width="92%" align="center" cellpadding="10">
+<tr> <td width="100%" colspan ="8"> <strong>Shares in the Domain</strong>  </td> </tr>
+<tr class="row-a"><td> SNo </td><td> Share </td><td>Read Permissions</td>  <td> Write Permissions</td>   
+     
+    <td>Edit Share </td>  <td>Delete Share </td> 
+</tr>
+{% for object in object_list %}
+
+<tr class="row-b"><td> {{ forloop.counter }} </td><td> {{ object.share }} </td><td>    {% for user in object.read.all %}  {{ user }}  {% endfor %}   </td>
+
+<td>         {% for user in object.write.all %}  {{ user }}  {% endfor %} </td>
+
+<td> <a href="/shares/edit/{{ object.id }}/">  Edit this Share</a> </td> 
+<td> <a href="/shares/delete/{{ object.id }}/">  Delete this Share</a> </td> 
+
+
+
+</tr>
+
+
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+No Shares Added Yet
+{% endif %}
+
+{% endblock %}

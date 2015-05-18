@@ -1,0 +1,13 @@
+wserver ALL=NOPASSWD:/usr/sbin/smbldap-useradd
+wserver ALL=NOPASSWD:/usr/sbin/smbldap-userdel
+wserver ALL=NOPASSWD:/usr/sbin/smbldap-passwd
+wserver ALL=NOPASSWD:/usr/sbin/smbldap-groupadd
+wserver ALL=NOPASSWD:/usr/sbin/smbldap-groupmod
+wserver ALL=NOPASSWD:/usr/sbin/smbldap-groupdel
+wserver ALL=NOPASSWD:/etc/init.d/smbd
+wserver ALL=NOPASSWD:/bin/chmod
+wserver ALL=NOPASSWD:/bin/chown
+wserver ALL=NOPASSWD:/bin/chgrp
+wserver ALL=NOPASSWD:/bin/rm
+wserver ALL=NOPASSWD:/bin/mkdir
+

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+<h1> Delete this User</h1>
+
+
+<br>
+
+<p>
+We urge you to be very careful, and read this before you delete</p>
+
+<p> You have two options. One delete the user and not their files, means that the user won't have access to the Z drive or Romaing profiles, or delete user the user with his director on the NAS box
+Choose carefully</p>
+
+<br> <br>
+{% if form.errors %}
+<p class="error"> Please correct the errors below:
+{{ form.non_field_errors }}</p>
+{% endif %}
+<form enctype="multipart/form-data"  method="post" action=""> {% csrf_token %}
+<dl>
+{% for field in form %}
+    <dt>{{ field.label_tag }}{% if field.field.required %}*{% endif %}</dt>
+    <dd>{{ field }}</dd>
+    {% if field.help_text %}<dd>{{ field.help_text|safe }} </dd><br>{% endif %}
+    {% if field.errors %}<dd class="myerrors">{{ field.errors }}</dd>{% endif %}
+    
+{% endfor %}
+</dl>
+<br>
+
+<input type="submit"  name="Publish"/>
+</form>
+</p>
+</p>
+
+{% endblock %}
+

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+
+{% if object_list %}
+
+
+<table width="92%" align="center" cellpadding="10">
+<tr> <td width="100%" colspan ="8"> <strong>Disabled Users in the Domain</strong>  </td> </tr>
+<tr class="row-a"><td> SNo </td><td> User </td><td> Quota Alloted</td>  <td>Quota Used</td>   
+     <td>Percent Used </td> <td>Enable User </td>
+   <td>Delete User </td>
+</tr>
+{% for object in object_list %}
+
+<tr class="row-b"><td> {{ forloop.counter }} </td><td> {{ object.user.username }} </td><td>       {{ object.quota }}   </td>
+
+<td>       {{ object.used }}   </td>
+
+
+<td>       {{ object.percent  }}   </td>
+
+
+<td> <a href="/users/enable/{{ object.id }}/">  Enable this User Permanently</a> </td> 
+
+<td> <a href="/users/cleanup/{{ object.id }}/">  Delete this User Permanently</a> </td> 
+
+
+
+</tr>
+
+
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+No Users Added Yet
+{% endif %}
+
+{% endblock %}

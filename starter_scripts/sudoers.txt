@@ -1,0 +1,4 @@
+werver ALL=NOPASSWD:/usr/sbin/smbldap-useradd
+wserver ALL=NOPASSWD:/usr/sbin/smbldap-userdel
+wserver ALL=NOPASSWD:/usr/sbin/smbldap-passwd
+

@@ -1,0 +1,2 @@
+sudo apt-get install python-dev apache2 libapache2-mod-wsgi  python-imaging python-pip sqlite3 build-essential
+pip install django psutil pexpect django-pagination

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section id="main-content">
+          <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i> Responsive Table Examples</h3>
+          <div class="row mt">
+            <div class="col-lg-12">
+            {% if object_list %}
+                      <div class="content-panel">
+                      <h4><i class="fa fa-angle-right"></i> Responsive Table</h4>
+                          <section id="unseen">
+                            <table class="table table-bordered table-striped table-condensed">
+                              <thead>
+                              <tr>
+                                  <th>SNo/th>
+                                  <th>User</th>
+                                  <th>Quota Alloted</th>
+                                  <th>Quota Used</th>
+                                  <th>Percent Used </th>
+                                  <th>Change Password</th>
+                                  <th>Change Quota</th>
+                                  <th>Delete User</th>
+                                 
+                              </tr>
+                              </thead>
+                              <tbody>
+                              {% for object in object_list %}
+                              <tr>
+                                  <td>{{ forloop.counter }}</td>
+                                  <td>{{ object.user.username }}</td>
+                                  <td>{{ object.quota }}</td>
+                                  <td>{{ object.used }}</td>
+                                  <td>{{ object.percent  }}</td>
+                                  <td><a href="/users/changepassword/{{ object.id }}/"> Change Password </a></td>
+                                  <td><a href="/users/changequota/{{ object.id }}/">   Change Quota</a> </td>
+                                  <td><a href="/users/delete/{{ object.id }}/">  Delete this User</a></td>
+                                 
+                              </tr>
+                             
+                              </tbody>
+                              {% endfor %}
+                          </table>
+                          </section>
+                  </div><!-- /content-panel -->
+               </div><!-- /col-lg-4 -->     
+        </div><!-- /row -->
+
+
+    </section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+
+{% else %}
+
+No Users Added Yet
+{% endif %}
+
+
+{% endblock %}

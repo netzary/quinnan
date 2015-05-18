@@ -1,0 +1,63 @@
+    
+{% extends "base.html" %}
+{% block content %}
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          	<h3><i class="fa fa-angle-right"></i> Add User</h3>
+          	
+          	<!-- BASIC FORM ELELEMNTS -->
+          	<div class="row mt">
+          		<div class="col-lg-12">
+               <div class="col-lg-10">
+                                  <p class="form-control-static">Quota must be in MB. Avoid Commas, and letters<br>Make sure that you choose a quota of size less than {{ free }} MB</p>
+                              </div>
+                  <div class="form-panel">
+                  	  <h4 class="mb">
+                      {% if form.errors %}
+                      <i class="fa icon-warning-sign"></i> Please correct the errors below</h4>
+                      {{ form.non_field_errors }}</p>
+                      {% endif %}
+                      <form class="form-horizontal style-form" method="post" action="">
+                      {% csrf_token %}
+                      {% for field in form %}
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">{{ field.label_tag }}{% if field.field.required %}*{% endif %}</label>
+                              <div class="col-sm-10">
+                                 {{ field }}
+                                     </div>
+                          </div>
+                                 {% if field.help_text %}<dd>{{ field.help_text|safe }} </dd><br>{% endif %}
+    {% if field.errors %}<dd class="myerrors">{{ field.errors }}</dd>{% endif %}
+                                 <!-- <input type="text" class="form-control">-->
+                                 {% endfor %}
+                          
+                          
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label"></label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">Quota must be in MB. Avoid Commas, and letters<br>Make sure that you choose a quota of size less than {{ free }} MB</p>
+                              </div>
+                          </div>
+                          <input type="submit"  name="Publish"/>
+                      </form>
+                  </div>
+          		</div><!-- col-lg-12-->      	
+          	</div><!-- /row -->
+          	
+        
+          	
+          	
+          	
+          	
+          	
+          	
+		</section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+
+ 
+    {% endblock %}

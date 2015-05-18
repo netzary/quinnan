@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1> Add/Edit Share</h1>
+
+<br> <br>
+{% if form.errors %}
+<p class="error"> Please correct the errors below:
+{{ form.non_field_errors }}</p>
+{% endif %}
+<form enctype="multipart/form-data"  method="post" action=""> {% csrf_token %}
+<dl>
+{% for field in form %}
+    <dt>{{ field.label_tag }}{% if field.field.required %}*{% endif %}</dt>
+    <dd>{{ field }}</dd>
+    {% if field.help_text %}<dd>{{ field.help_text|safe }} </dd><br>{% endif %}
+    {% if field.errors %}<dd class="myerrors">{{ field.errors }}</dd>{% endif %}
+    
+{% endfor %}
+</dl>
+<br>
+<dd> Quota must be in MB. Avoid Commas, and letters</dd>
+<dd> Make sure that you choose a quota of size less than {{ free }} MB</dd>
+<input type="submit"  name="Publish"/>
+</form>
+</p>
+</p>
+
+{% endblock %}
+

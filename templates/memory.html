@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block ajax %}
+<script type="text/javascript"> 
+
+ $(document).ready(function() {
+ 	 $("#stat").load('/systemstats/memorystat/');
+   var refreshId = setInterval(function() {
+      $("#stat").load('/systemstats/memorystat/');
+   }, 9000);
+   $.ajaxSetup({ cache: false });
+});
+</script>
+
+
+
+{% endblock %}
+
+{% block content %}
+<strong> Note: This page gets updated approximately every 10 seconds, polling for memory details.</strong>
+
+<div id="stat">  </div>
+
+{% endblock %}

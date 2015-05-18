@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+
+
+
+{% block content %}
+
+<h1> Enable User</h1>
+<p> Note: Already {{ used }} MB in the folder, Remember to set a quota above that, if not the quota allocated would remain the same</p>
+
+<br> <br>
+{% if form.errors %}
+<p class="error"> Please correct the errors below:
+{{ form.non_field_errors }}</p>
+{% endif %}
+<form enctype="multipart/form-data"  method="post" action=""> {% csrf_token %}
+<dl>
+{% for field in form %}
+    <dt>{{ field.label_tag }}{% if field.field.required %}*{% endif %}</dt>
+    <dd>{{ field }}</dd>
+    {% if field.help_text %}<dd>{{ field.help_text|safe }} </dd><br>{% endif %}
+    {% if field.errors %}<dd class="myerrors">{{ field.errors }}</dd>{% endif %}
+    
+{% endfor %}
+</dl>
+<br>
+
+<input type="submit"  name="Publish"/>
+</form>
+</p>
+</p>
+
+{% endblock %}
+

@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <style>
+    
+html, body{ 
+  margin:0;
+  padding:0;
+  width:100%;
+}
+
+.folder
+{ width:15%;
+float:left;
+height:100px;
+box-shadow: 10px 10px 5px #888888;
+}
+
+</style>
+
+</head>
+
+<body>
+<br>
+{% load iconify %}
+{% for share in dirs %}
+<div class="folder">
+<a href="/myfiles/{{ share.path }}">
+    <img src = "{{ share.path|iconify }}">
+    
+    {{ share.name }},</a>
+
+</div>
+
+{% endfor %}
+
+<br>
+
+<br>
+{% for file in files %}
+<div class="folder">
+<a href="/myfiles/{{ file.path }}">
+    <img src = "{{ file.path|iconify }}">
+{{ file.name }}  
+
+</div>
+{% endfor %}
+
+
+
+</body>

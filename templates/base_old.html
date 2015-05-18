@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset=utf-8 />
+<title> Netzary</title>
+<script type="text/javascript" src="/site_media/jquery.min.js"></script>
+<link rel="stylesheet" href="/site_media/style.css" type="text/css"/>
+
+<script type="text/javascript" src="/site_media/site.js"></script>
+
+{% block ajax %}
+
+{% endblock %}
+</head>
+
+<body>
+
+<div id="wrap">
+
+<div id="header">
+<img src="http://annan.jkfabrics.com/media/logo.gif">
+
+</div>
+
+  <div id="container">
+	
+	<!-- First Menu Start -->
+	<ul>
+		<li><a href="#" class="dropdown">SETUP</a></li>
+		
+		<li class="sublinks">
+			<a href="/accounts/login/">Login</a>
+			<a href="/accounts/logout/"> Logout</a>
+		</li>
+		
+	</ul>
+	<!-- First Menu End -->
+
+	<!-- Second Menu Start -->
+	<ul>
+		<li><a href="#" class="dropdown">Users</a></li>
+		
+		<li class="sublinks">
+			<a href="/users/add/">Add Users</a>
+				<a href="/users/">Users</a>
+					<a href="/users/disabled/">Disabled Users</a>
+							<a href="/users/set_storage/">Set Storage</a>
+		</li>
+		
+	</ul>
+	<!-- Second Menu End -->
+
+	<!-- Third Menu Start -->
+	<ul>
+		<li><a href="#" class="dropdown">System Stats</a></li>
+		
+		<li class="sublinks">
+			<a href="/systemstats/memory/">Memory</a>
+
+		</li>
+		
+	</ul>
+	<!-- Third Menu End -->
+
+	
+	<!-- Third Menu Start -->
+	<ul>
+		<li><a href="#" class="dropdown">Shares</a></li>
+		
+		<li class="sublinks">
+			<a href="/shares/">Lits of Shares</a>
+			<a href="/shares/add/">Add Shares</a>
+
+		</li>
+		
+	</ul>
+	<!-- Third Menu End -->
+	
+	
+  	</div>
+	
+<br clear="all"/>
+
+	
+	<div id="content-wrap">
+	
+	<div id="sidebar">
+		
+				
+								
+					<span class="sidemenu"><a href="/">Home</a></span>
+						
+		
+	</div>	
+	<div id="main">
+	
+	{% block content %}
+	
+	
+	
+	
+	{% endblock %}
+	
+	
+	</div>
+	<br clear="all"/>
+	
+	<div id="footer">
+	Copyright Netzary
+	</div>
+	</div>	
+</body>
+</html>

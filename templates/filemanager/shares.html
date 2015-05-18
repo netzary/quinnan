@@ -1,0 +1,29 @@
+<html>
+
+
+<body>
+{% load iconify %}
+
+
+
+<br>
+{% for object in object_list %}
+
+
+<a href="/myfiles/{{ object.path }}">
+    <img src = "{{ object.path|iconify }}">
+{{ object.name }}  
+ 
+
+
+{% endfor %}
+
+<br>
+ 
+<a href="/myfiles/{{ home.path }}">
+    <img src = "{{ home.path|iconify }}">
+{{ home.name }}  
+ 
+
+
+</body>

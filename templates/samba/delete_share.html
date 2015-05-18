@@ -1,0 +1,57 @@
+    
+{% extends "base.html" %}
+{% block content %}
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          	<h3><i class="fa fa-angle-right"></i>Delete Share</h3>
+          	<div class="col-lg-10">
+                                  <p class="form-control-static">We urge you to be very careful, and read this before you delete<br>Choose carefully</p>
+                              </div>
+          	<!-- BASIC FORM ELELEMNTS -->
+          	<div class="row mt">
+          		<div class="col-lg-12">
+
+                  <div class="form-panel">
+                  	  <h4 class="mb">
+                      {% if form.errors %}
+                      <i class="fa icon-warning-sign"></i> Please correct the errors below</h4>
+                      {{ form.non_field_errors }}</p>
+                      {% endif %}
+                      <form class="form-horizontal style-form" method="post" action="">
+                      {% csrf_token %}
+                      {% for field in form %}
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">{{ field.label_tag }}{% if field.field.required %}*{% endif %}</label>
+                              <div class="col-sm-10">
+                                 {{ field }}
+                                     </div>
+                          </div>
+                                 {% if field.help_text %}<dd>{{ field.help_text|safe }} </dd><br>{% endif %}
+    {% if field.errors %}<dd class="myerrors">{{ field.errors }}</dd>{% endif %}
+                                 <!-- <input type="text" class="form-control">-->
+                                 {% endfor %}
+                          
+                          
+                          <input type="submit"  name="Publish"/>
+                      </form>
+                  </div>
+          		</div><!-- col-lg-12-->      	
+          	</div><!-- /row -->
+          	
+        
+          	
+          	
+          	
+          	
+          	
+          	
+		</section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+
+ 
+    {% endblock %}
